@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Matching Game</title>
+
+
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+
+<h1>Match the Terms with Definitions</h1>
+<p class="creator" style="color: aliceblue;">Created by RD OSIO</p>
+<p class="instructions">
+  
+  📱 Tap a term on the left, then tap a definition on the right to match.<br>
+  🔄 Double-tap a matched definition to remove the answer.<br>
+  ✔️ Correct answers glow green instantly!
+</p>
+
+<div class="top-bar">
+  <div>⏱ Time: <span id="timer">0</span>s</div>
+  <div>⭐ Score: <span id="score">0</span></div>
+</div>
+
+<div id="winMessage">🎉 YOU GOT EVERYTHING CORRECT! 🎉</div>
+
+<div class="container">
+  <div class="list" id="terms"></div>
+  <div class="list" id="definitions"></div>
+</div>
+
+<button onclick="resetGame()">Reset</button>
+
+<!-- MAIN JS -->
+<script src="main.js"></script>
+
+</body>
+</html>

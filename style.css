@@ -1,0 +1,223 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e3a8a, #2563eb);
+  color: #1e293b;
+  padding: 20px;
+  animation: fadeIn 0.8s ease-in;
+}
+
+/* TITLE */
+h1 {
+  text-align: center;
+  color: #e0f2fe;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+/* TOP BAR */
+.top-bar {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 20px;
+  color: #e0f2fe;
+  font-size: 18px;
+}
+
+/* CONTAINER */
+.container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* LIST BOX */
+.list {
+  width: 45%;
+  max-height: 500px;
+  overflow-y: auto;
+  background: rgba(255,255,255,0.95);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  animation: slideUp 0.6s ease;
+}
+
+/* SCROLLBAR */
+.list::-webkit-scrollbar {
+  width: 6px;
+}
+.list::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 10px;
+}
+
+/* ITEMS */
+.item {
+  background: #eff6ff;
+  margin: 8px 0;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: grab;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-left: 5px solid #3b82f6;
+}
+
+/* HOVER */
+.item:hover {
+  transform: scale(1.05);
+  background: #dbeafe;
+}
+
+/* DRAGGING */
+.item:active {
+  cursor: grabbing;
+  transform: scale(1.08);
+  opacity: 0.7;
+}
+
+/* DROP ZONES */
+.dropzone {
+  background: #f1f5f9;
+  min-height: 50px;
+  margin: 8px 0;
+  padding: 12px;
+  border: 2px dashed #93c5fd;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* DROP HOVER */
+.dropzone:hover {
+  background: #dbeafe;
+  border-color: #2563eb;
+}
+
+/* CORRECT */
+.correct {
+  background: #bfdbfe !important;
+  border-color: #2563eb !important;
+  animation: pop 0.4s ease;
+}
+
+/* INCORRECT */
+.incorrect {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  animation: shake 0.4s ease;
+}
+
+/* BUTTONS */
+button {
+  margin: 10px;
+  padding: 12px 22px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #2563eb;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* BUTTON HOVER */
+button:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* BUTTON CLICK */
+button:active {
+  transform: scale(0.95);
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .list {
+    width: 100%;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* GLOW EFFECT FOR CORRECT */
+.correct {
+  background: #bfdbfe !important;
+  border-color: #2563eb !important;
+  animation: pop 0.4s ease, glow 1s ease-in-out infinite alternate;
+}
+
+/* BLUE GLOW */
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px #3b82f6, 0 0 10px #3b82f6;
+  }
+  to {
+    box-shadow: 0 0 15px #60a5fa, 0 0 25px #60a5fa;
+  }
+}
+
+.instructions {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #e0f0ff;
+  background-color: #003366;
+  padding: 10px 15px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.item.selected {
+  border: 3px solid #1e90ff; /* bright blue border */
+  background-color: #cce6ff;  /* light blue background */
+  box-shadow: 0 0 10px #1e90ff;
+}
